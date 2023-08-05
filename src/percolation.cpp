@@ -1,4 +1,5 @@
 #include "../include/percolation.h"
+#include "../include/percolation_stats.h"
 #include<iostream>
 
 
@@ -6,11 +7,7 @@ int main()
 {
   PercolationStats Percolation;
 
-  Percolation.union_find();
+  Percolation.union_find(); 
   return 0;
 }
 
-void PercolationStats::union_find(void)
-{
-  std::cout<<"test"<<std::endl;
-}

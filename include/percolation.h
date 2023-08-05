@@ -1,17 +1,21 @@
-class PercolationStats {
+class Percolation {
+public:
+    // creates n-by-n grid, with all sites initially blocked
+    Percolation(int n);
 
-    public:
-    //int PercolationStats(int n, int trials);
-    // mean of percolation threshold
-    bool open[100];
-    // checks if the nodes are connected
-    void union_find();
-    // mean of percolation threshold
-    double mean();
-    // standard deviation of percolation threshold
-    double stddev();
-    // low endpoint of 95% confidence interval
-    double confidenceLo();
-    // high endpoint of 95% confidence interval
-    double confidenceHi();
+    // opens the site (row, col) if it is not open already
+    void open(int row, int col);
+
+    // is the site (row, col) open?
+    bool isOpen(int row, int col);
+
+    // is the site (row, col) full?
+    bool isFull(int row, int col);
+
+    // returns the number of open sites
+    int numberOfOpenSites();
+
+    // does the system percolate?
+    bool percolates();
+
 };

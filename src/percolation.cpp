@@ -1,13 +1,8 @@
 #include "../include/percolation.h"
-#include "../include/percolation_stats.h"
 #include<iostream>
 
-
-int main()
+Percolation::Percolation(int n)
 {
-  PercolationStats Percolation;
 
-  Percolation.union_find(); 
-  return 0;
 }
 

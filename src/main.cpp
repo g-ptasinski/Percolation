@@ -9,8 +9,10 @@ int main(int argc, char *argv[])
   unsigned int n{ 1000 }; 
   unsigned int trials{ 50 };
 
-  PercolationStats Percolation;
-  Percolation.union_find(); 
+  PercolationStats perc;
+  
+
+
 
   if (argc == 3) 
   {
@@ -18,7 +20,9 @@ int main(int argc, char *argv[])
     trials = std::stoi(argv[2]);
   }
 
-  std::cout<<n << " " << trials <<std::endl;
+  Percolation Grid(n);
+  Grid.Test();
+  //std::cout<<n << " " << trials <<std::endl;
 
 
   return 0;

@@ -39,10 +39,16 @@ private:
     //How many sites are currently open
     uint iOpenSites;
 
+    //How many sites are currently open
+    uint iN_sites;
+
     // stores open sites
     std::vector<bool> open_sites;
 
     // validates if row or column out of bounds
     void validate(int row, int col);
+
+    // translates position on 2D grid to an ID of a cell in a 1D vector
+    int RowColToSiteID(int row, int col);
 
 };

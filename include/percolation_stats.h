@@ -1,8 +1,9 @@
 class PercolationStats {
 
+    typedef unsigned int uint;
     
     public:
-    //int PercolationStats(int n, int trials);
+    PercolationStats(uint n, uint trials);
     // mean of percolation threshold
     bool open[100];
     // checks if the nodes are connected
@@ -15,4 +16,13 @@ class PercolationStats {
     double confidenceLo();
     // high endpoint of 95% confidence interval
     double confidenceHi();
+
+    private:
+
+    // Size of grid
+    uint n;
+
+    // Number of trials to be carried out in simulation
+    uint trials;
+
 };

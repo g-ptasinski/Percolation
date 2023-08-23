@@ -1,29 +1,43 @@
 #include "../include/percolation.h"
-#include<iostream>
+#include <iostream>
 
-Percolation::Percolation(uint n)
+typedef unsigned int uint;
+
+Percolation::Percolation(uint n) 
+          : iSize(n), iOpenSites(0)
 {
+  //Resizes a vector to size N^2+2 (1d representation of grid)
+  open_sites.resize(n*n + 2, false);
 
- 
-  iSize       = n;
-  iOpenSites  = 0;
-
-  open_sites.resize(n, 0);
+  //Start point (artificially added on top, above first row)
+  open_sites[0] = true;   
+  
+  //Endpoint (added on bottom, below last row)
+  open_sites[n*n+1] = true; 
 }
 
 void Percolation::open(uint row, uint col)
 {
   validate(row, col);
 
+  if( !isOpen(row, col) )
+  {
+    open_sites[RowColToSiteID(row, col)] = true;
+    iOpenSites++;
+  }
 }
 
 bool Percolation::isOpen(int row, int col)
 {
   validate(row, col);
 
+  return(open_sites[RowColToSiteID(row, col)]);
 }
 
-
+int Percolation::RowColToSiteID(int row, int col)
+{
+  return(( row - 1 )*iSize + ( col - 1 ) + 1);
+}
 
 void Percolation::validate(int row, int col)
 {

@@ -49,6 +49,11 @@ void Percolation::validate(int row, int col)
   }
 }
 
+uint Percolation::numberOfOpenSites()
+{
+  return iOpenSites;
+}
+
 void Percolation::Test( void )
 {
   std::cout<<open_sites.size()<<std::endl;

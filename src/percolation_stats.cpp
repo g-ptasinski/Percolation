@@ -15,3 +15,8 @@ void PercolationStats::union_find()
 {
   std::cout<<"test"<<std::endl;
 }
+
+double PercolationStats::mean()
+{
+  std::cout<<"test"<<std::endl;
+}

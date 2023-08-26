@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
   Percolation       Grid(n); 
 
   //Creates an instance of Percolation Stats class (grid nxn)
-  PercolationStats  perc(n, trials);
+  PercolationStats  Perc_Stats(n, trials);
 
   Grid.Test();
 

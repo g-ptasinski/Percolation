@@ -11,7 +11,7 @@ PercolationStats::PercolationStats(uint n, uint trials)
 
 }
 
-void PercolationStats::union_find()
+void PercolationStats::union_find(uint ID1, uint ID2)
 {
   std::cout<<"test"<<std::endl;
 }

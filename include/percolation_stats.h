@@ -9,8 +9,8 @@ class PercolationStats {
     // mean of percolation threshold
     uint Percolation_Threshold[100];
 
-    // checks if the nodes are connected
-    void union_find(); //THE MAIN ALGORITHM
+    // checks if the nodes are cAonnected
+    void union_find(uint ID1, uint ID2); //THE MAIN ALGORITHM
 
     // mean of percolation threshold
     double mean();

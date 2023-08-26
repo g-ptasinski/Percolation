@@ -27,7 +27,6 @@ public:
     // Test prints
     void Test( void );
 
-
 private: 
 
     //Size of the side of grid

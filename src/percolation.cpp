@@ -1,4 +1,5 @@
 #include "../include/percolation.h"
+#include "../include/union_find.h"
 #include <iostream>
 
 typedef unsigned int uint;
@@ -14,6 +15,8 @@ Percolation::Percolation(uint n)
   
   //Endpoint (added on bottom, below last row)
   open_sites[n*n+1] = true; 
+
+  Union_Find uf_algorithm(1);
 }
 
 void Percolation::open(uint row, uint col)
@@ -52,6 +55,11 @@ void Percolation::validate(int row, int col)
 uint Percolation::numberOfOpenSites()
 {
   return iOpenSites;
+}
+
+bool Percolation::percolates()
+{
+  return false;
 }
 
 void Percolation::Test( void )

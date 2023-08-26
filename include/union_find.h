@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 
 class Union_Find {
@@ -6,12 +8,16 @@ class Union_Find {
 
 public:
 
-    // creates n-by-n grid, with all sites initially blocked
+    // Creates two vectors (parent and size), containing IDs of objects, and sizes of subsets respectively
     Union_Find(uint n);            //[x]
+
+    bool connected(uint p, uint q);
+    void join(uint p, uint q);
 
 private: 
 
-    //Size of the side of grid
-    uint iSize;
+    std::vector<uint> parent, set_size;
+
+    uint root(uint i);
 
 };

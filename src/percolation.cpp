@@ -5,10 +5,10 @@
 typedef unsigned int uint;
 
 Percolation::Percolation(uint n) 
-          : iSize(n), iOpenSites(0)
+          : iSize(n), iOpenSites(0), iTotalSites(n*n + 2), uf_algorithm(iTotalSites)
 {
   //Resizes a vector to size N^2+2 (1d representation of grid)
-  open_sites.resize(n*n + 2, false);
+  open_sites.resize(iTotalSites, false);
 
   //Start point (artificially added on top, above first row)
   open_sites[0] = true;   
@@ -16,7 +16,6 @@ Percolation::Percolation(uint n)
   //Endpoint (added on bottom, below last row)
   open_sites[n*n+1] = true; 
 
-  Union_Find uf_algorithm(1);
 }
 
 void Percolation::open(uint row, uint col)
@@ -59,7 +58,7 @@ uint Percolation::numberOfOpenSites()
 
 bool Percolation::percolates()
 {
-  return false;
+  return uf_algorithm.connected(1, iTotalSites);
 }
 
 void Percolation::Test( void )

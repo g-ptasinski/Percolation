@@ -1,4 +1,6 @@
 #include <vector>
+#include "../include/union_find.h"
+
 
 class Percolation {
 
@@ -43,6 +45,9 @@ private:
 
     // stores open sites
     std::vector<bool> open_sites;
+
+    // creates union find
+    Union_Find uf_algorithm;
 
     // validates if row or column out of bounds
     void validate(int row, int col);        //[x]

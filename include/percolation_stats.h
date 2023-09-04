@@ -1,16 +1,17 @@
+#pragma once
+
+#include "../include/percolation.h"
+
 class PercolationStats {
+        
+    public:
 
     typedef unsigned int uint;
-    
-    public:
 
     PercolationStats(uint n, uint trials);
 
     // mean of percolation threshold
     uint Percolation_Threshold[100];
-
-    // checks if the nodes are cAonnected
-    void union_find(uint ID1, uint ID2); //THE MAIN ALGORITHM
 
     // mean of percolation threshold
     double mean();
@@ -23,6 +24,10 @@ class PercolationStats {
 
     // high endpoint of 95% confidence interval
     double confidenceHi();
+
+    void   union_find(uint ID1, uint ID2);
+
+    double ComputeThreshold(Percolation& percolation);
 
     private:
 

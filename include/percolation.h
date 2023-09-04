@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 #include "../include/union_find.h"
 
@@ -23,8 +25,11 @@ public:
     // returns the number of open sites
     uint numberOfOpenSites();       //[x]
 
+    // returns the number of open sites
+    uint getSize();                 //[x]
+
     // does the system percolate?
-    bool percolates();
+    bool percolates();              //[x]    
 
     // Test prints
     void Test( void );

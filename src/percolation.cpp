@@ -65,3 +65,8 @@ void Percolation::Test( void )
 {
   std::cout<<open_sites.size()<<std::endl;
 }
+
+uint Percolation::getSize( void )
+{
+  return iSize;
+}

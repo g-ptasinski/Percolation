@@ -52,7 +52,7 @@ private:
     std::vector<bool> open_sites;
 
     // creates union find
-    Union_Find uf_algorithm(iSize*iSize+2);
+    Union_Find uf_algorithm;
 
     // validates if row or column out of bounds
     void validate(int row, int col);        //[x]

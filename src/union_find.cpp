@@ -7,22 +7,23 @@ Union_Find::Union_Find(uint n)
 {
 
   parent.reserve(n);      //Set size of parent vector to n
-  set_size.assign(n, 1);  //Initially every set contains just one element.
 
-  for(uint i = 1; i<n ; i++)
+
+  for(auto i = 0; i<n ; i++)
   {
     parent.push_back(i);
   }
 
-  std::cout<< "Union find Created" <<std::endl;
+  set_size.assign(n, 1);  //Initially every set contains just one element.
+  std::cout<<parent.size()<<std::endl;
 }
 
 uint Union_Find::root(uint i) 
 {
-  while(i != parent[i])
+  while(i != parent.at(i))
   {
     //Traces the subset back to the root node of element i
-    i = parent[i];  
+    i = parent.at(i);      
   }
 
   return i;
@@ -37,23 +38,21 @@ void Union_Find::join(uint p, uint q)
   //if so, return
   if( root_p == root_q ) return;
 
-  if( set_size[p] < set_size[q] )
+  if( set_size.at(p) < set_size.at(q) )
   {
-    parent[root_p] = root_q ;
+    parent.at(root_p) = root_q ;
 
-    set_size[p]+=set_size[q];
+    set_size.at(p)+=set_size.at(q);
   }
   else
   {
-    parent[root_q] = root_p ;
+    parent.at(root_q) = root_p ;
     
-    set_size[q]+=set_size[p];
+    set_size.at(q)+=set_size.at(p);
   }
 }
 
-bool Union_Find::connected(uint p, uint q) 
+bool Union_Find::connected(uint p, uint q)
 {
-  std::cout<< p <<std::endl; 
-  std::cout<< q <<std::endl;
   return root(p)==root(q);
 }

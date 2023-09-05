@@ -4,8 +4,7 @@
 #include <random> //import random module
 #include <math.h>
 
-// get 'entropy' from device that generates random numbers itself
-// to seed a mersenne twister (pseudo) random generator
+//pseudo random generator seed
 std::mt19937 generator(std::random_device{}());
 
 PercolationStats::PercolationStats(uint n, uint trials)
@@ -46,4 +45,6 @@ double PercolationStats::ComputeThreshold(Percolation& percolation)
   }
 
   std::cout<<iOpenSites<<std::endl;
+
+  return (double)iOpenSites;
 }

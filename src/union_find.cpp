@@ -53,5 +53,7 @@ void Union_Find::join(uint p, uint q)
 
 bool Union_Find::connected(uint p, uint q) 
 {
+  std::cout<< p <<std::endl; 
+  std::cout<< q <<std::endl;
   return root(p)==root(q);
 }

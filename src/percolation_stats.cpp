@@ -1,14 +1,16 @@
 #include "../include/percolation_stats.h"
 
 #include<iostream>
-
-#include <stdlib.h>     
-#include <time.h>       
+#include <random> //import random module
 #include <math.h>
+
+// get 'entropy' from device that generates random numbers itself
+// to seed a mersenne twister (pseudo) random generator
+std::mt19937 generator(std::random_device{}());
 
 PercolationStats::PercolationStats(uint n, uint trials)
 {
-  srand (time(NULL));
+
 }
 
 void PercolationStats::union_find(uint ID1, uint ID2)
@@ -27,13 +29,21 @@ double PercolationStats::ComputeThreshold(Percolation& percolation)
   uint iOpenSites;
   uint size = percolation.getSize();
 
+  std::uniform_int_distribution<int> distribution(0,size);
+
   while(!percolation.percolates())
   {
-    q = rand()%size;
-    p = rand()%size;
+
+    q = distribution(generator);
+    p = distribution(generator);
+
+    std::cout<<q <<" | "<< p << std::endl;
 
     percolation.open(p,q);
+
     iOpenSites = percolation.numberOfOpenSites();
 
   }
+
+  std::cout<<iOpenSites<<std::endl;
 }

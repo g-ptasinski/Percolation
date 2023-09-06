@@ -61,6 +61,6 @@ private:
     int RowColToSiteID(int row, int col);   //[x]
 
     // Checks if neighbouring cells are open, connects the cell to neighbours
-    int ConnectWithNeighbours(int row, int col);   
+    void ConnectWithNeighbours(int row, int col);   
 
 };

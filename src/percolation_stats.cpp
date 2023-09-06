@@ -28,23 +28,22 @@ double PercolationStats::ComputeThreshold(Percolation& percolation)
   uint iOpenSites;
   uint size = percolation.getSize();
 
-  std::uniform_int_distribution<int> distribution(0,size);
+  std::uniform_int_distribution<int> distribution(1,size);
 
   while(!percolation.percolates())
   {
-
     q = distribution(generator);
     p = distribution(generator);
 
-    std::cout<<q <<" | "<< p << std::endl;
 
+    std::cout<<q <<" | "<< p << std::endl;
     percolation.open(p,q);
 
     iOpenSites = percolation.numberOfOpenSites();
 
-  }
 
-  std::cout<<iOpenSites<<std::endl;
+    std::cout<<iOpenSites<<std::endl;
+  }
 
   return (double)iOpenSites;
 }

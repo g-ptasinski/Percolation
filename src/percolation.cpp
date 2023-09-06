@@ -25,6 +25,9 @@ void Percolation::open(uint row, uint col)
   if( !isOpen(row, col) )
   {
     open_sites.at(RowColToSiteID(row, col)) = true;
+
+    ConnectWithNeighbours(row, col);
+    
     iOpenSites++;
   }
 }
@@ -69,4 +72,115 @@ void Percolation::Test( void )
 uint Percolation::getSize( void )
 {
   return iSize;
+}
+
+void Percolation::ConnectWithNeighbours(int row, int col)
+{
+  uint SiteID = RowColToSiteID(row, col);
+
+
+  //Not in 1st or last column or 1st or last row. Cell in the middle, neighbours on all sides
+  if(row!=1 && row!=iSize && col!=1 && col!=iSize)
+  {
+    if(isOpen(row + 1, col))
+    {
+      uf_algorithm.join(SiteID, RowColToSiteID(row + 1, col));
+    }
+    if(isOpen(row - 1, col))
+    {
+      uf_algorithm.join(SiteID, RowColToSiteID(row - 1, col));
+    }
+    if(isOpen(row , col + 1))
+    {
+      uf_algorithm.join(SiteID, RowColToSiteID(row , col + 1));
+    }
+    if(isOpen(row , col - 1))
+    {
+      uf_algorithm.join(SiteID, RowColToSiteID(row , col - 1));
+    }
+  }
+  else if(row == 1)
+  {
+
+    uf_algorithm.join(SiteID, 0);
+
+    if(isOpen(row + 1, col))
+    {
+      uf_algorithm.join(SiteID, RowColToSiteID(row + 1, col));
+    }
+    if(col != iSize)
+    {  
+      if(isOpen(row , col + 1))
+      {
+        uf_algorithm.join(SiteID, RowColToSiteID(row , col + 1));
+      }
+    }
+    if(col != 1)
+    {  
+      if(isOpen(row , col - 1))
+      {
+        uf_algorithm.join(SiteID, RowColToSiteID(row , col - 1));
+      }
+    }
+  }
+  else if (row == iSize) 
+  {
+    uf_algorithm.join(SiteID, iTotalSites + 1);  
+
+    if (isOpen(row - 1, col))
+    {
+      uf_algorithm.join(SiteID, RowColToSiteID(row - 1, col));
+    }
+
+    if (col != 1) 
+    {
+      // Left
+      if (isOpen(row, col - 1))
+      {
+        uf_algorithm.join(SiteID, RowColToSiteID(row, col - 1));
+      }
+    }
+
+    if (col != iSize) 
+    {
+      // Right
+      if (isOpen(row, col + 1))
+      {
+        uf_algorithm.join(SiteID, RowColToSiteID(row, col + 1));
+      }
+    }
+  }
+  else 
+  {
+    // Top
+    if (isOpen(row - 1, col))
+    {
+      uf_algorithm.join(SiteID, RowColToSiteID(row - 1, col));
+    }
+
+    // Bottom
+    if (isOpen(row + 1, col))
+    {
+      uf_algorithm.join(SiteID, RowColToSiteID(row + 1, col));
+    }
+
+    if (col == iSize) 
+    {
+      // Left
+      if (isOpen(row, col - 1))
+      {
+        uf_algorithm.join(SiteID, RowColToSiteID(row, col - 1));
+      }
+    }
+
+    if (col == 1) 
+    {
+      // Right
+      if (isOpen(row, col + 1))
+      {
+        uf_algorithm.join(SiteID, RowColToSiteID(row, col + 1));
+      }
+    }
+  }
+
 }

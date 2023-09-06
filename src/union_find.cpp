@@ -8,14 +8,12 @@ Union_Find::Union_Find(uint n)
 
   parent.reserve(n);      //Set size of parent vector to n
 
-
   for(auto i = 0; i<n ; i++)
   {
     parent.push_back(i);
   }
 
   set_size.assign(n, 1);  //Initially every set contains just one element.
-  std::cout<<parent.size()<<std::endl;
 }
 
 uint Union_Find::root(uint i) 
@@ -42,13 +40,13 @@ void Union_Find::join(uint p, uint q)
   {
     parent.at(root_p) = root_q ;
 
-    set_size.at(p)+=set_size.at(q);
+    set_size.at(p) += set_size.at(q);
   }
   else
   {
     parent.at(root_q) = root_p ;
     
-    set_size.at(q)+=set_size.at(p);
+    set_size.at(q) += set_size.at(p);
   }
 }
 

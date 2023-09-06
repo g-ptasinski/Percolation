@@ -17,11 +17,9 @@ int main(int argc, char *argv[])
 
   //Creates an instance of Percolation class (grid nxn)
   Percolation       Grid(n); 
-  std::cout<<"Grid created"<<std::endl;
 
   //Creates an instance of Percolation Stats class (grid nxn)
   PercolationStats  Perc_Stats(n, trials);
-  std::cout<<"Stats created"<<std::endl;
 
   Perc_Stats.ComputeThreshold(Grid);
 

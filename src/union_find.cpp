@@ -8,7 +8,7 @@ Union_Find::Union_Find(uint n)
 
   parent.reserve(n);      //Set size of parent vector to n
 
-  for(auto i = 0; i<n ; i++)
+  for(auto i = 0; i < n ; ++i)
   {
     parent.push_back(i);
   }
@@ -22,6 +22,7 @@ uint Union_Find::root(uint i)
   {
     //Traces the subset back to the root node of element i
     i = parent.at(i);      
+    std::cout<<parent.at(i)<<std::endl;
   }
 
   return i;
@@ -52,5 +53,5 @@ void Union_Find::join(uint p, uint q)
 
 bool Union_Find::connected(uint p, uint q)
 {
-  return root(p)==root(q);
+  return root(p) == root(q);
 }

@@ -24,26 +24,28 @@ double PercolationStats::mean()
 
 double PercolationStats::ComputeThreshold(Percolation& percolation)
 {
-  uint p,q;
+  uint row, col;
   uint iOpenSites;
   uint size = percolation.getSize();
 
-  std::uniform_int_distribution<int> distribution(1,size);
+  std::uniform_int_distribution<int> distribution( 1, size );
 
-  while(!percolation.percolates())
+  while( !percolation.percolates() )
   {
-    q = distribution(generator);
-    p = distribution(generator);
+    col = distribution(generator);
+    row = distribution(generator);
 
 
-    std::cout<<q <<" | "<< p << std::endl;
-    percolation.open(p,q);
+    //std::cout<<row <<" | "<< col << std::endl;
+    
+    percolation.open(row,col);
 
     iOpenSites = percolation.numberOfOpenSites();
 
+    //percolation.printGrid();
 
-    std::cout<<iOpenSites<<std::endl;
+    //std::cout<<iOpenSites<<std::endl;
   }
 
-  return (double)iOpenSites;
+  return (double)iOpenSites/(n*n);
 }

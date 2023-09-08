@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[])
 {
-  unsigned int n{ 1000 }; 
+  unsigned int n{ 5 }; 
   unsigned int trials{ 50 };
   
   if (argc == 3) 

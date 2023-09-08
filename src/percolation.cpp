@@ -24,8 +24,8 @@ void Percolation::open(uint row, uint col)
 
   if( !isOpen(row, col) )
   {
-    open_sites.at(RowColToSiteID(row, col)) = true;
 
+    open_sites.at(RowColToSiteID(row, col)) = true;
     ConnectWithNeighbours(row, col);
     
     iOpenSites++;
@@ -72,6 +72,21 @@ void Percolation::Test( void )
 uint Percolation::getSize( void )
 {
   return iSize;
+}
+
+void Percolation::printGrid( void )
+{
+  for(int x=1; x<=iSize ; x++)
+  {
+    for(int y=1 ; y<=iSize ; y++)
+    {
+      if(isOpen(x,y))
+          std::cout<<"[ ]";
+        else
+          std::cout<<"[X]";
+    }
+    std::cout << std::endl;
+  }
 }
 
 void Percolation::ConnectWithNeighbours(int row, int col)
@@ -125,7 +140,7 @@ void Percolation::ConnectWithNeighbours(int row, int col)
   }
   else if (row == iSize) 
   {
-    uf_algorithm.join(SiteID, iTotalSites + 1);  
+    uf_algorithm.join(SiteID, iTotalSites - 2);  
 
     if (isOpen(row - 1, col))
     {

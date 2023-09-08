@@ -34,6 +34,8 @@ public:
     // Test prints
     void Test( void );
 
+    void printGrid(void);
+
 private: 
 
     //Size of the side of grid

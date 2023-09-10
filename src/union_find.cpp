@@ -11,6 +11,7 @@ Union_Find::Union_Find(uint n)
   for(auto i = 0; i < n ; ++i)
   {
     parent.push_back(i);
+    std::cout<<i<<std::endl;
   }
 
   set_size.assign(n, 1);  //Initially every set contains just one element.
@@ -22,7 +23,7 @@ uint Union_Find::root(uint i)
   {
     //Traces the subset back to the root node of element i
     i = parent.at(i);      
-    std::cout<<parent.at(i)<<std::endl;
+    //std::cout<<parent.at(i)<<std::endl;
   }
 
   return i;
@@ -49,6 +50,8 @@ void Union_Find::join(uint p, uint q)
     
     set_size.at(q) += set_size.at(p);
   }
+
+  std::cout<<p<<" joined with "<<q<<std::endl;
 }
 
 bool Union_Find::connected(uint p, uint q)

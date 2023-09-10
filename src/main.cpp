@@ -21,7 +21,8 @@ int main(int argc, char *argv[])
   //Creates an instance of Percolation Stats class (grid nxn)
   PercolationStats  Perc_Stats(n, trials);
 
-  Perc_Stats.ComputeThreshold(Grid);
+  std::cout<<"Percolates!"<<std::endl;
+  std::cout<<"Percolation threshold is: "<<Perc_Stats.ComputeThreshold(Grid)<<std::endl;
 
   return 0;
 }

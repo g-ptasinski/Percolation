@@ -14,7 +14,7 @@ Percolation::Percolation(uint n)
   open_sites.at(0) = true;   
   
   //Endpoint (added on bottom, below last row)
-  open_sites.at(n*n+1) = true; 
+  open_sites.at(iTotalSites-1) = true; 
 
 }
 
@@ -24,9 +24,8 @@ void Percolation::open(uint row, uint col)
 
   if( !isOpen(row, col) )
   {
-
-    open_sites.at(RowColToSiteID(row, col)) = true;
     ConnectWithNeighbours(row, col);
+    open_sites.at(RowColToSiteID(row, col)) = true;
     
     iOpenSites++;
   }
@@ -114,7 +113,7 @@ void Percolation::ConnectWithNeighbours(int row, int col)
       uf_algorithm.join(SiteID, RowColToSiteID(row , col - 1));
     }
   }
-  else if(row == 1)
+  else if(row == 1) //TOP
   {
 
     uf_algorithm.join(SiteID, 0);
@@ -138,9 +137,9 @@ void Percolation::ConnectWithNeighbours(int row, int col)
       }
     }
   }
-  else if (row == iSize) 
+  else if (row == iSize) //BOTTOm
   {
-    uf_algorithm.join(SiteID, iTotalSites - 2);  
+    uf_algorithm.join(SiteID, iTotalSites - 1);  
 
     if (isOpen(row - 1, col))
     {
@@ -197,5 +196,4 @@ void Percolation::ConnectWithNeighbours(int row, int col)
       }
     }
   }
-
 }

@@ -25,7 +25,7 @@ public:
     // returns the number of open sites
     uint numberOfOpenSites();       //[x]
 
-    // returns the number of open sites
+    // returns the number of total sites
     uint getSize();                 //[x]
 
     // does the system percolate?
@@ -57,12 +57,12 @@ private:
     Union_Find uf_algorithm;
 
     // validates if row or column out of bounds
-    void validate(int row, int col);        //[x]
+    void validate(int row, int col);                //[x]
 
     // translates position on 2D grid to an ID of a cell in a 1D vector
-    int RowColToSiteID(int row, int col);   //[x]
+    int RowColToSiteID(int row, int col);           //[x]
 
     // Checks if neighbouring cells are open, connects the cell to neighbours
-    void ConnectWithNeighbours(int row, int col);   
+    void ConnectWithNeighbours(int row, int col);   //[x]   
 
 };

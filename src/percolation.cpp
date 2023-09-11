@@ -63,11 +63,6 @@ bool Percolation::percolates()
   return uf_algorithm.connected(0, iTotalSites-1);
 }
 
-void Percolation::Test( void )
-{
-  std::cout<<open_sites.size()<<std::endl;
-}
-
 uint Percolation::getSize( void )
 {
   return iSize;

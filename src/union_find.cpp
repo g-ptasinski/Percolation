@@ -11,7 +11,6 @@ Union_Find::Union_Find(uint n)
   for(auto i = 0; i < n ; ++i)
   {
     parent.push_back(i);
-    std::cout<<i<<std::endl;
   }
 
   set_size.assign(n, 1);  //Initially every set contains just one element.
@@ -51,7 +50,7 @@ void Union_Find::join(uint p, uint q)
     set_size.at(q) += set_size.at(p);
   }
 
-  std::cout<<p<<" joined with "<<q<<std::endl;
+  //std::cout<<p<<" joined with "<<q<<std::endl;
 }
 
 bool Union_Find::connected(uint p, uint q)

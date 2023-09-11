@@ -6,8 +6,8 @@
 
 int main(int argc, char *argv[])
 {
-  unsigned int n{ 5 }; 
-  unsigned int trials{ 50 };
+  unsigned int n{ 10 }; 
+  unsigned int trials{ 100 };
   
   if (argc == 3) 
   {
@@ -16,13 +16,26 @@ int main(int argc, char *argv[])
   }
 
   //Creates an instance of Percolation class (grid nxn)
-  Percolation       Grid(n); 
+  //Percolation       Grid(n); 
 
   //Creates an instance of Percolation Stats class (grid nxn)
   PercolationStats  Perc_Stats(n, trials);
 
-  std::cout<<"Percolates!"<<std::endl;
-  std::cout<<"Percolation threshold is: "<<Perc_Stats.ComputeThreshold(Grid)<<std::endl;
+  double meanthreshold;
+
+  for(int i=0; i<trials; i++)
+  {
+    //Creates an instance of Percolation class (grid nxn)
+    Percolation       Grid(n); 
+
+    std::cout<<"Trial: "<<i<<std::endl;
+    meanthreshold+=Perc_Stats.ComputeThreshold(Grid);
+
+  }
+
+  meanthreshold = meanthreshold/(double)(trials);
+
+  std::cout<<"Percolation mean threshold is: "<<meanthreshold<<std::endl;
 
   return 0;
 }

@@ -31,9 +31,6 @@ public:
     // does the system percolate?
     bool percolates();              //[x]    
 
-    // Test prints
-    void Test( void );
-
     void printGrid(void);
 
 private: 

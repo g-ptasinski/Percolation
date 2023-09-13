@@ -9,7 +9,7 @@ std::mt19937 generator(std::random_device{}());
 
 PercolationStats::PercolationStats(uint n, uint trials)
 {
-
+  
 }
 
 void PercolationStats::union_find(uint ID1, uint ID2)
@@ -19,7 +19,8 @@ void PercolationStats::union_find(uint ID1, uint ID2)
 
 double PercolationStats::mean()
 {
-  std::cout<<"test"<<std::endl;
+  std::cout<< Percolation_Threshold/trials << std::endl;
+  return Percolation_Threshold/trials;
 }
 
 double PercolationStats::ComputeThreshold(Percolation& percolation)
@@ -41,11 +42,9 @@ double PercolationStats::ComputeThreshold(Percolation& percolation)
     //percolation.printGrid();
   }
 
-  /*std::cout<<iOpenSites<<std::endl;
-  std::cout<<(size*size)<<std::endl;
-  std::cout<<mean<<std::endl;*/
+  double threshold = (double)iOpenSites/(double)(size*size);
 
-  double mean = (double)iOpenSites/(double)(size*size);
-  
-  return mean;
+  Percolation_Threshold += threshold;
+      
+  return threshold;
 }

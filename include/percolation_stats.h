@@ -11,9 +11,6 @@ class PercolationStats {
     PercolationStats(uint n, uint trials);
 
     // mean of percolation threshold
-    uint Percolation_Threshold[100];
-
-    // mean of percolation threshold
     double mean();
 
     // standard deviation of percolation threshold
@@ -29,7 +26,11 @@ class PercolationStats {
 
     double ComputeThreshold(Percolation& percolation);
 
+
+
     private:
+
+    double Percolation_Threshold;
 
     // Size of grid
     uint n;

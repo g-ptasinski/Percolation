@@ -15,9 +15,6 @@ int main(int argc, char *argv[])
     trials = std::stoi(argv[2]);
   }
 
-  //Creates an instance of Percolation class (grid nxn)
-  //Percolation       Grid(n); 
-
   //Creates an instance of Percolation Stats class (grid nxn)
   PercolationStats  Perc_Stats(n, trials);
 
@@ -25,14 +22,12 @@ int main(int argc, char *argv[])
   {
     //Creates an instance of Percolation class (grid nxn)
     Percolation       Grid(n); 
-
-    std::cout<<"Trial: "<<i<<std::endl;
+    Perc_Stats.ComputeThreshold(Grid);
   }
 
-  Perc_Stats.mean();
+  Perc_Stats.computeMean();
 
-
-  //std::cout<<"Percolation mean threshold is: "<<meanthreshold<<std::endl;
+  std::cout<<"Percolation mean threshold is: "<<Perc_Stats.getMean()<<std::endl;
 
   return 0;
 }

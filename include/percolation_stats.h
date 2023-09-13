@@ -10,11 +10,14 @@ class PercolationStats {
 
     PercolationStats(uint n, uint trials);
 
-    // mean of percolation threshold
-    double mean();
+    // Compute mean of percolation threshold
+    void   computeMean();
+
+    // Getter for mean of percolation threshold
+    double getMean();
 
     // standard deviation of percolation threshold
-    double stddev();
+    double getStddev();
 
     // low endpoint of 95% confidence interval
     double confidenceLo();
@@ -30,7 +33,9 @@ class PercolationStats {
 
     private:
 
-    double Percolation_Threshold;
+    double Percolation_Threshold = 0.0;
+
+    double mean;
 
     // Size of grid
     uint n;

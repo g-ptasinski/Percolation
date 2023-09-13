@@ -7,7 +7,7 @@
 //pseudo random generator seed
 std::mt19937 generator(std::random_device{}());
 
-PercolationStats::PercolationStats(uint n, uint trials)
+PercolationStats::PercolationStats(uint n, uint trials) : trials(trials)
 {
   
 }
@@ -17,10 +17,14 @@ void PercolationStats::union_find(uint ID1, uint ID2)
   std::cout<<"test"<<std::endl;
 }
 
-double PercolationStats::mean()
+void PercolationStats::computeMean()
 {
-  std::cout<< Percolation_Threshold/trials << std::endl;
-  return Percolation_Threshold/trials;
+  mean = Percolation_Threshold/trials;
+}
+
+double PercolationStats::getMean()
+{
+  return mean;
 }
 
 double PercolationStats::ComputeThreshold(Percolation& percolation)
@@ -44,7 +48,13 @@ double PercolationStats::ComputeThreshold(Percolation& percolation)
 
   double threshold = (double)iOpenSites/(double)(size*size);
 
-  Percolation_Threshold += threshold;
-      
+  Percolation_Threshold += (double)threshold;
+
   return threshold;
 }
+
+double PercolationStats::getStddev()
+{
+
+}
+

@@ -13,6 +13,9 @@ class PercolationStats {
     // Compute mean of percolation threshold
     void   computeMean();
 
+    // Getter for standard deviation
+    void   computeStddev();
+
     // Getter for mean of percolation threshold
     double getMean();
 
@@ -25,17 +28,17 @@ class PercolationStats {
     // high endpoint of 95% confidence interval
     double confidenceHi();
 
-    void   union_find(uint ID1, uint ID2);
-
-    double ComputeThreshold(Percolation& percolation);
-
-
+    void ComputeThreshold(Percolation& percolation);
 
     private:
 
     double Percolation_Threshold = 0.0;
 
     double mean;
+    double StdDev;
+
+    // stores open sites
+    std::vector<double> Percolation_Thresholds;
 
     // Size of grid
     uint n;

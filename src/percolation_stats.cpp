@@ -9,17 +9,26 @@ std::mt19937 generator(std::random_device{}());
 
 PercolationStats::PercolationStats(uint n, uint trials) : trials(trials)
 {
-  
-}
-
-void PercolationStats::union_find(uint ID1, uint ID2)
-{
-  std::cout<<"test"<<std::endl;
+  Percolation_Thresholds.reserve(trials);
 }
 
 void PercolationStats::computeMean()
 {
-  mean = Percolation_Threshold/trials;
+  mean = std::accumulate(Percolation_Thresholds.begin(), Percolation_Thresholds.end(), 0.0) / Percolation_Thresholds.size();
+}
+
+void PercolationStats::computeStddev()
+{
+  double SquaresSum = 0.0;
+
+  for (int i = 0; i < Percolation_Thresholds.size() ; i++)
+  {
+    SquaresSum += pow((Percolation_Thresholds.at(i) - mean), 2);
+  }
+
+  double variance = SquaresSum / ( trials );
+
+  StdDev = sqrt(variance);
 }
 
 double PercolationStats::getMean()
@@ -27,7 +36,12 @@ double PercolationStats::getMean()
   return mean;
 }
 
-double PercolationStats::ComputeThreshold(Percolation& percolation)
+double PercolationStats::getStddev()
+{
+  return StdDev;
+}
+
+void PercolationStats::ComputeThreshold(Percolation& percolation)
 {
   uint row, col;
   uint iOpenSites;
@@ -48,13 +62,8 @@ double PercolationStats::ComputeThreshold(Percolation& percolation)
 
   double threshold = (double)iOpenSites/(double)(size*size);
 
-  Percolation_Threshold += (double)threshold;
-
-  return threshold;
+  Percolation_Thresholds.push_back(threshold);
 }
 
-double PercolationStats::getStddev()
-{
 
-}
 

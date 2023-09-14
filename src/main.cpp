@@ -26,8 +26,10 @@ int main(int argc, char *argv[])
   }
 
   Perc_Stats.computeMean();
+  Perc_Stats.computeStddev();
 
-  std::cout<<"Percolation mean threshold is: "<<Perc_Stats.getMean()<<std::endl;
+  std::cout<<"Percolation mean threshold is: "<< Perc_Stats.getMean() <<std::endl;
+  std::cout<<"StdDev is: "<< Perc_Stats.getStddev() <<std::endl;
 
   return 0;
 }

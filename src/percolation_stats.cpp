@@ -26,7 +26,7 @@ void PercolationStats::computeStddev()
     SquaresSum += pow((Percolation_Thresholds.at(i) - mean), 2);
   }
 
-  double variance = SquaresSum / ( trials );
+  double variance = SquaresSum / ( trials - 1 );
   
   StdDev = sqrt(variance);
 }

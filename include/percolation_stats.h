@@ -16,6 +16,12 @@ class PercolationStats {
     // Getter for standard deviation
     void   computeStddev();
 
+    // low endpoint of 95% confidence interval
+    void   computeConfidenceLo();
+
+    // high endpoint of 95% confidence interval
+    void   computeConfidenceHi();
+
     // Getter for mean of percolation threshold
     double getMean();
 
@@ -23,12 +29,12 @@ class PercolationStats {
     double getStddev();
 
     // low endpoint of 95% confidence interval
-    double confidenceLo();
+    double getConfidenceLo();
 
     // high endpoint of 95% confidence interval
-    double confidenceHi();
+    double getConfidenceHi();
 
-    void ComputeThreshold(Percolation& percolation);
+    void   ComputeThreshold(Percolation& percolation);
 
     private:
 
@@ -42,6 +48,10 @@ class PercolationStats {
 
     // Size of grid
     uint n;
+
+    //Confidence intervals
+    double ConfidenceLo;
+    double ConfidenceHi;
 
     // Number of trials to be carried out in simulation
     uint trials;

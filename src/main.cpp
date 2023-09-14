@@ -22,17 +22,22 @@ int main(int argc, char *argv[])
   {
     //Creates an instance of Percolation class (grid nxn)
     Percolation       Grid(n); 
+
     Perc_Stats.ComputeThreshold(Grid);
   }
 
   Perc_Stats.computeMean();
   Perc_Stats.computeStddev();
+  Perc_Stats.computeConfidenceLo();
+  Perc_Stats.computeConfidenceHi();
 
   std::cout<<"Analysis complete              "<<std::endl<<std::endl;
   std::cout<<"Trials done:                   "<< trials <<std::endl;
   std::cout<<"Grid size:                     "<< n << " x " << n <<std::endl;
   std::cout<<"Percolation mean threshold is: "<< Perc_Stats.getMean() <<std::endl;
   std::cout<<"StdDev is:                     "<< Perc_Stats.getStddev() <<std::endl;
+  std::cout<<"High confidence interval is:   "<< Perc_Stats.getConfidenceHi() <<std::endl;
+  std::cout<<"Low confidence interval is:    "<< Perc_Stats.getConfidenceLo() <<std::endl;
 
   return 0;
 }

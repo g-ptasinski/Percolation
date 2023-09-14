@@ -27,9 +27,21 @@ void PercolationStats::computeStddev()
   }
 
   double variance = SquaresSum / ( trials );
-
+  
   StdDev = sqrt(variance);
 }
+
+void PercolationStats::computeConfidenceLo()
+{
+  ConfidenceLo = mean - 1.96 * StdDev / sqrt(trials);
+}
+
+
+void PercolationStats::computeConfidenceHi()
+{
+  ConfidenceHi = mean + 1.96 * StdDev / sqrt(trials);
+}
+
 
 double PercolationStats::getMean()
 {
@@ -39,6 +51,16 @@ double PercolationStats::getMean()
 double PercolationStats::getStddev()
 {
   return StdDev;
+}
+
+double PercolationStats::getConfidenceLo()
+{
+  return ConfidenceLo;
+}
+
+double PercolationStats::getConfidenceHi()
+{
+  return ConfidenceHi;
 }
 
 void PercolationStats::ComputeThreshold(Percolation& percolation)

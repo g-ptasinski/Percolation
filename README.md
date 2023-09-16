@@ -26,6 +26,16 @@ All of the code has been done using C++, and is compiled with make. The default 
 * Standard deviation
 * The 95% confidence interval boundary values
 
+To change the default values for lattice size and trials number one should run main.exe or ./main with appropriate commandline arguments:
+
+'main.exe {lattice side size} {number of trials}
+
+For example
+
+'main.exe 10 50'
+
+Will perform 50 simulations of a 10x10 lattice. 
+
 ### Todo
 
 - [X] The core functionality, union find, stats

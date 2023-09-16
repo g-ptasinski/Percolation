@@ -26,7 +26,7 @@ All of the code has been done using C++, and is compiled with make. The default 
 * Standard deviation
 * The 95% confidence interval boundary values
 
-###Todo
+### Todo
 
 - [X] The core functionality, union find, stats
 - [ ] GUI

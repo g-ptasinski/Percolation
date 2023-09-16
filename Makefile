@@ -14,7 +14,7 @@ SRC := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ := $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 # Compiler flags
-CFLAGS   := -std=c++11 -Wall -g -fopenmp -w -O3
+CFLAGS   := -std=c++20 -Wall -g -fopenmp -w -O3
 
 .PHONY: all clean
 

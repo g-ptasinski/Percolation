@@ -40,7 +40,7 @@ Will perform 50 simulations of a 10x10 lattice.
 
 - [X] The core functionality, union find, stats
 - [ ] GUI
-- [ ] Migration to C++17 
+- [X] Migration to C++20
 
 
 

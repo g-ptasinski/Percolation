@@ -2,6 +2,7 @@
 #include "../include/percolation_stats.h"
 #include <iostream>
 #include <string>
+#include <SFML/Graphics.hpp>
 
 
 int main(int argc, char *argv[])
@@ -14,6 +15,8 @@ int main(int argc, char *argv[])
     n      = std::stoi(argv[1]);
     trials = std::stoi(argv[2]);
   }
+
+  sf::Window window(sf::VideoMode(800, 600), "Percolation", sf::Style::Default);
 
   //Creates an instance of Percolation Stats class (grid nxn)
   PercolationStats  Perc_Stats(n, trials);
@@ -38,6 +41,19 @@ int main(int argc, char *argv[])
   std::cout<<"StdDev is:                     "<< Perc_Stats.getStddev() <<std::endl;
   std::cout<<"High confidence interval is:   "<< Perc_Stats.getConfidenceHi() <<std::endl;
   std::cout<<"Low confidence interval is:    "<< Perc_Stats.getConfidenceLo() <<std::endl;
+
+
+  while (window.isOpen())
+    {
+        // check all the window's events that were triggered since the last iteration of the loop
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            // "close requested" event: we close the window
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+    }
 
   return 0;
 }

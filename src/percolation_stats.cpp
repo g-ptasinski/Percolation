@@ -3,6 +3,7 @@
 #include<iostream>
 #include <random> //import random module
 #include <math.h>
+#include <numeric>
 
 //pseudo random generator seed
 std::mt19937 generator(std::random_device{}());

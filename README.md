@@ -41,6 +41,8 @@ Will perform 50 simulations of a 10x10 lattice.
 - [X] The core functionality, union find, stats
 - [ ] GUI
 - [X] Migration to C++20
+- [X] Cmake integration
+- [X] Connecting SFML
 
 
 

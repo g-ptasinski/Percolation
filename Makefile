@@ -3,6 +3,8 @@ CC := g++
 # Final target
 EXE := main
 
+LDLIBS := -lsfml-graphics -lsfml-window -lsfml-system
+
 # Source and build output directories
 SRC_DIR := src
 OBJ_DIR := obj

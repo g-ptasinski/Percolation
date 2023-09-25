@@ -14,12 +14,9 @@ int main(int argc, char *argv[])
   {
     n      = std::stoi(argv[1]);
     trials = std::stoi(argv[2]);
-  }
 
-  sf::Window window(sf::VideoMode(800, 600), "Percolation", sf::Style::Default);
-
-  //Creates an instance of Percolation Stats class (grid nxn)
-  PercolationStats  Perc_Stats(n, trials);
+    //Creates an instance of Percolation Stats class (grid nxn)
+    PercolationStats  Perc_Stats(n, trials);
 
   for(int i=0; i<trials; i++)
   {
@@ -41,10 +38,21 @@ int main(int argc, char *argv[])
   std::cout<<"StdDev is:                     "<< Perc_Stats.getStddev() <<std::endl;
   std::cout<<"High confidence interval is:   "<< Perc_Stats.getConfidenceHi() <<std::endl;
   std::cout<<"Low confidence interval is:    "<< Perc_Stats.getConfidenceLo() <<std::endl;
+  }
+  else 
+  {
+      sf::Window window(sf::VideoMode(1368, 720), "Percolation", sf::Style::Default);
 
+        //Creates an instance of Percolation class (grid nxn)
+        Percolation       Grid(n); 
 
-  while (window.isOpen())
-    {
+        //Creates an instance of Percolation Stats class (grid nxn)
+        PercolationStats  Perc_Stats(n, trials);
+
+        while (window.isOpen())
+      {
+        
+
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
         while (window.pollEvent(event))
@@ -53,7 +61,8 @@ int main(int argc, char *argv[])
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-    }
+      }
+  }
 
   return 0;
 }

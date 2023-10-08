@@ -1,0 +1,5 @@
+C:/Users/ptasi/Desktop/Percolation/gui/build-Percolation-Desktop_Qt_6_2_1_MinGW_64_bit-Debug/CMakeFiles/Percolation.dir
+C:/Users/ptasi/Desktop/Percolation/gui/build-Percolation-Desktop_Qt_6_2_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/ptasi/Desktop/Percolation/gui/build-Percolation-Desktop_Qt_6_2_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/ptasi/Desktop/Percolation/gui/build-Percolation-Desktop_Qt_6_2_1_MinGW_64_bit-Debug/CMakeFiles/Percolation_autogen_timestamp_deps.dir
+C:/Users/ptasi/Desktop/Percolation/gui/build-Percolation-Desktop_Qt_6_2_1_MinGW_64_bit-Debug/CMakeFiles/Percolation_autogen.dir

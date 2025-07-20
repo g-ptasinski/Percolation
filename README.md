@@ -38,7 +38,7 @@ Will perform 50 simulations of a 10x10 lattice.
 
 ## Dependancies 
 
-For the GUI to work, one needs to install [SFML](https://www.sfml-dev.org). On Linux with CLI, on Windows probably with a package manager (like MSYNC2).
+For the GUI to work, one needs to install [SFML](https://www.sfml-dev.org). On Linux with CLI, on Windows probably with a package manager (like MSYS2).
 
 ### Todo
 
